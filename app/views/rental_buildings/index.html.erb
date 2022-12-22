@@ -1,9 +1,22 @@
 <h1>一覧</h1>
+<table>
+  <tr>
+    <th>物件名</th>
+    <th>賃料</th>
+    <th>住所</th>
+    <th>築年数</th>
+    <th>備考</th>
+  </tr>
 <% @rental_building.each do |rental| %>
-  <%= rental.name %>
-  <%= rental.price %>
-  <%= rental.address %>
-  <%= rental.age %>
-  <%= rental.comment %>
-  <%= rental.name %>
-<% end %>
+  <tr>
+  <td><%= rental.name %></td>
+  <td><%= rental.price %></td>
+  <td><%= rental.address %></td>
+  <td><%= rental.age %></td>
+  <td><%= rental.comment %></td>
+  <td><%= link_to '詳細', rental %></td>
+  <td><%= link_to '編集' %></td>
+  <td><%= link_to '削除' %></td>
+  </tr>
+  <% end %>
+</table>
