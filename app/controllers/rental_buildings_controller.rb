@@ -25,8 +25,7 @@ class RentalBuildingsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental_building).permit(:name, :price, :age, :address, :comment, 
-                                            closest_station_attributes: [:id, :line, :station_name, :walk_by])
+    params.require(:rental_building).permit(:name, :price, :age, :address, :comment, closest_stations_attributes: [:id, :line, :station_name, :walk_by])
   end
 
 end

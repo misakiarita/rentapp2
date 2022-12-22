@@ -6,8 +6,11 @@
 <p>住所：<%= @rental_building.address %></p>
 <p>備考：<%= @rental_building.comment %></p>
 
+
 <% @closest_stations.each do |closest_station| %>
 <p>路線：<%= closest_station.line %></p>
 <p>駅名：<%= closest_station.station_name %></p>
 <p>徒歩分数：<%= closest_station.walk_by %></p>
 <% end %>
+<br>
+<%= link_to '戻る', rental_buildings_path %>
