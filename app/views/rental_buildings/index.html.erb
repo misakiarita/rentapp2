@@ -1,0 +1,9 @@
+<h1>一覧</h1>
+<% @rental_building.each do |rental| %>
+  <%= rental.name %>
+  <%= rental.price %>
+  <%= rental.address %>
+  <%= rental.age %>
+  <%= rental.comment %>
+  <%= rental.name %>
+<% end %>
