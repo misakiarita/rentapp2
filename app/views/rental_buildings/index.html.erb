@@ -15,8 +15,8 @@
   <td><%= rental.age %></td>
   <td><%= rental.comment %></td>
   <td><%= link_to '詳細', rental %></td>
-  <td><%= link_to '編集' %></td>
-  <td><%= link_to '削除' %></td>
+  <td><%= link_to '削除', rental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to '詳細', rental %></td>
   </tr>
   <% end %>
 </table>

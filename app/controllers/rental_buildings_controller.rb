@@ -18,9 +18,16 @@ class RentalBuildingsController < ApplicationController
     @closest_stations = @rental_building.closest_stations
   end
 
- def index
+  def index
     @rental_building = RentalBuilding.all
- end
+  end
+
+  def destroy
+    @rental_building = RentalBuilding.find(params[:id])
+    if @rental_building.destroy
+    redirect_to rental_buildings_path, notice:"削除されました"
+    end
+  end
 
   private
 
