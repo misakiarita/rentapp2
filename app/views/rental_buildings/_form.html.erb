@@ -22,26 +22,27 @@
   <br>
   <p>___________________________________________________________________________________________________________________________________________</p>
    
-    <%= f.fields_for :closest_stations do |station| %>
-      <h2>最寄り駅</h2>
-          <%= station.label '路線名' %>
-          <br>
-          <%= station.text_field :line %>
-          <br>
-          <%= station.label '駅名' %>
-          <br>
-          <%= station.text_field :station_name %>
-          <br>
-          <%= station.label '徒歩分数' %>
-          <br>
-          <%= station.text_field :walk_by %>分
-                 
-    <% end %>
-
+  <%= f.fields_for :closest_stations do |station| %>
+    <h2>最寄り駅</h2>
+    <%= station.label '路線名' %>
     <br>
-    <%= f.submit "登録する" %>
+    <%= station.text_field :line %>
     <br>
-  
+    <%= station.label '駅名' %>
+    <br>
+    <%= station.text_field :station_name %>
+    <br>
+    <%= station.label '徒歩分数' %>
+    <br>
+    <%= station.text_field :walk_by %>分                 
+  <% end %>
+  <br>
+  <% if current_page?(new_rental_building_path) %>
+  <%= f.submit "登録する" %>
+  <% else %>
+  <%= f.submit "編集する" %>
+  <br>
+  <% end %>
 <br>
 
 <% end %>
