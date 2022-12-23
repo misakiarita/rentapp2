@@ -1,14 +1,14 @@
 
 
 <p><strong>物件名：</strong><%= @rental_building.name %></p>
-<p><strong>賃料：</strong><%= @rental_building.price %></p>
-<p><strong>築年数：</strong><%= @rental_building.age %></p>
+<p><strong>賃料：</strong><%= @rental_building.price %>円</p>
+<p><strong>築年数：</strong><%= @rental_building.age %>年</p>
 <p><strong>住所：</strong><%= @rental_building.address %></p>
 <p><strong>備考：</strong><%= @rental_building.comment %></p>
 <p>___________________________________________________________________________________________________________________________________________</p>
-
+<% n = 0 %>
 <% @closest_stations.each do |closest_station| %>
-<h2>最寄り駅</h2>
+<b>最寄り駅<%= n += 1 %></b>
 <p>路線：<%= closest_station.line %></p>
 <p>駅名：<%= closest_station.station_name %></p>
 <p>徒歩分数：<%= closest_station.walk_by %></p>
