@@ -1,0 +1,44 @@
+<%= form_with(model: @rental_building, local: true) do |f| %> 
+  <%= f.label '物件名' %>
+      <br>
+      <%= f.text_field :name %>
+      <br>
+      <%= f.label '賃料' %>
+      <br>
+      <%= f.text_field :price %>
+      <br>
+      <%= f.label '住所' %>
+      <br>
+      <%= f.text_field :address %>
+      <br>
+      <%= f.label '築年数' %>
+      <br>
+      <%= f.text_field :age %>
+      <br>
+      <%= f.label '備考:' %>
+      <br>
+      <%= f.text_field :comment %>
+      <br>
+      <p>________________________________________________</p>
+      <br>
+      <h1>最寄り駅</h1>
+      <br>
+  <%= f.fields_for :closest_stations do |station| %>
+      <%= station.label '路線名' %>
+      <br>
+      <%= station.text_field :line %>
+      <br>
+      <%= station.label '駅名' %>
+      <br>
+      <%= station.text_field :station_name %>
+      <br>
+      <%= station.label '徒歩分数' %>
+      <br>
+      <%= station.text_field :walk_by %>
+      <br>
+  <% end %>
+  <br>
+  <%= f.submit "編集" %>
+  <br>
+  <%= link_to '戻る', rental_buildings_path %>
+<% end %>

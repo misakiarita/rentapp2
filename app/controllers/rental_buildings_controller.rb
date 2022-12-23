@@ -29,6 +29,19 @@ class RentalBuildingsController < ApplicationController
     end
   end
 
+  def edit
+    @rental_building = RentalBuilding.find(params[:id])
+  end
+
+  def update
+    @rental_building = RentalBuilding.find(params[:id])
+    if @rental_building.update(rental_params)
+      redirect_to rental_buildings_path, notice:"編集しました"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def rental_params
