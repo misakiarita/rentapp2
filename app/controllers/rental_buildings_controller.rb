@@ -31,6 +31,7 @@ class RentalBuildingsController < ApplicationController
 
   def edit
     @rental_building = RentalBuilding.find(params[:id])
+    # @rental_building.closest_stations.build
   end
 
   def update
