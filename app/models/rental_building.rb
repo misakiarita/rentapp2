@@ -1,12 +1,13 @@
 class RentalBuilding < ApplicationRecord
-  has_many :closest_stations, dependent: :destroy
-  accepts_nested_attributes_for :closest_stations, allow_destroy: true
-  
-#   , reject_if: :reject_stations
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :age, presence: true
+  validates :address, presence: true
 
-#   private
-#   def reject_stations(attributes)
-#     attributes[:closest_stations].blank?
-#   end
- end
+  has_many :closest_stations, dependent: :destroy
+  accepts_nested_attributes_for :closest_stations, reject_if: :reject_stations, allow_destroy: true
   
+  def reject_stations(attributed)
+    attributes['line'].blank?
+  end
+ end
