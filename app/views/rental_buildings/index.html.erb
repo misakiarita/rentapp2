@@ -1,0 +1,24 @@
+<h1>物件一覧</h1>
+<table>
+  <tr>
+    <th width="10%">物件名</th>
+    <th width="10%">賃料</th>
+    <th width="10%">住所</th>
+    <th width="4%">築年<br>数</th>
+    <th width="50%">備考</th>
+  </tr>
+<% @rental_building.each do |rental| %>
+  <tr>
+  <td width="10%"><%= rental.name %></td>
+  <td width="10%"><%= rental.price %>円</td>
+  <td width="10%"><%= rental.address %></td>
+  <td width="4%"><%= rental.age %><br>年</td>
+  <td width="80%"><%= rental.comment %></td>
+  <td><%= link_to '詳細', rental %></td>
+  <td><%= link_to '削除', rental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to '編集', edit_rental_building_path(rental) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to '物件を登録する', new_rental_building_path %>
